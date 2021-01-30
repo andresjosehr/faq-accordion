@@ -7,7 +7,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'app';
+  
   constructor(private titleService: Title){
     this.titleService.setTitle("FAQ Accordion | José Andrés Hernández")
   }
