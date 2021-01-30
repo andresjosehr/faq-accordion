@@ -99,8 +99,8 @@
 
 @font-face {
     font-family: 'Nunito';
-    src: url('/assets/fonts/Nunito/Nunito-Regular.woff2') format('woff2'),
-        url('/assets/fonts/Nunito/Nunito-Regular.woff') format('woff');
+    src: url('~src/assets/fonts/Nunito/Nunito-Regular.woff2') format('woff2'),
+        url('~src/assets/fonts/Nunito/Nunito-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -108,8 +108,8 @@
 
 @font-face {
     font-family: 'Nunito';
-    src: url('/assets/fonts/Nunito/Nunito-SemiBold.woff2') format('woff2'),
-        url('/assets/fonts/Nunito/Nunito-SemiBold.woff') format('woff');
+    src: url('~src/assets/fonts/Nunito/Nunito-SemiBold.woff2') format('woff2'),
+        url('~src/assets/fonts/Nunito/Nunito-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -117,8 +117,8 @@
 
 @font-face {
     font-family: 'Nunito';
-    src: url('/assets/fonts/Nunito/Nunito-SemiBoldItalic.woff2') format('woff2'),
-        url('/assets/fonts/Nunito/Nunito-SemiBoldItalic.woff') format('woff');
+    src: url('~src/assets/fonts/Nunito/Nunito-SemiBoldItalic.woff2') format('woff2'),
+        url('~src/assets/fonts/Nunito/Nunito-SemiBoldItalic.woff') format('woff');
     font-weight: 600;
     font-style: italic;
     font-display: swap;
