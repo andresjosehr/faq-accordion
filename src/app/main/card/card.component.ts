@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-card',
@@ -23,42 +25,16 @@ export class CardComponent implements OnInit {
   faqs      : Array<any>;
   faqState  : string = "inactive";
 
-  constructor() {
-    this.faqs=[
-      {
-        id: 1,
-        question: "How many team members can I invite?",
-        answer: "No more than 2GB. All files in your account must fit your allocatted storage space",
-        state: "inactive"
-      },
-      {
-        id: 2,
-        question: "What is the maximum file upload size",
-        answer: "No more than 2GB. All files in your account must fit your allocatted storage space",
-        state: "inactive"
-      },
-      {
-        id: 3,
-        question: "How do I reset my password",
-        answer: "No more than 2GB. All files in your account must fit your allocatted storage space",
-        state: "inactive"
-      },
-      {
-        id: 4,
-        question: "Can I cancel my suscription?",
-        answer: "No more than 2GB. All files in your account must fit your allocatted storage space",
-        state: "inactive"
-      },
-      {
-        id: 5,
-        question: "Do you provide additional support?",
-        answer: "No more than 2GB. All files in your account must fit your allocatted storage space",
-        state: "inactive"
-      }
-    ]
+  constructor(private http: HttpClient) {
+
+    this.faqs = [];
   }
 
   ngOnInit(): void {
+    this.http.get('https://api-staging2.terapiadebolso.com.br/faq/patients',
+      { params: { limit: 50 } }).subscribe(data => {
+      this.faqs = formatFaqsData(data);
+    });
   }
 
   faqAction(key: number){
@@ -74,4 +50,15 @@ export class CardComponent implements OnInit {
     this.faqs[key].state=this.faqs[key].state == "active" ? "inactive": "active";
   }
 
+}
+
+const formatFaqsData = (data: any) => {
+  return data.results.map((faq: any) => {
+    return {
+      id: faq.id,
+      question: faq.question_text,
+      answer: faq.answer_text,
+      state: "inactive"
+    }
+  })
 }
